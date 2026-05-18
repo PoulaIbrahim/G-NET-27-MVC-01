@@ -1,4 +1,4 @@
-namespace MVC1
+namespace GymMangement
 {
     public class Program
     {

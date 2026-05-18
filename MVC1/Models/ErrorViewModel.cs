@@ -1,4 +1,4 @@
-namespace MVC1.Models
+namespace GymMangement.Models
 {
     public class ErrorViewModel
     {

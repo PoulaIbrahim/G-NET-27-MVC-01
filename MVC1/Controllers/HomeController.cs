@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using MVC1.Models;
+using GymMangement.Models;
 
 namespace MVC1.Controllers
 {

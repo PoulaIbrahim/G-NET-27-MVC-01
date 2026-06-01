@@ -1,17 +1,19 @@
 ﻿using GymManagement.DAL.Repositories.Interfaces;
 using GymMangement.DbContexts;
+using GymMangement.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace GymMangement.Controllers
 {
+    //CLR
     public class PlansController : Controller
     {
         //private readonly GymDbContext _context = new GymDbContext();
-        private readonly IPlanRepository _planRepository;
+        private readonly IGenericRepository<Plan> _planRepository; // null
 
-        public PlansController(IPlanRepository planRepository)
+        public PlansController(IGenericRepository<Plan> planRepository) // ASK CLR To Inject Object From Class Which Implement IPlanRepository
         {
             _planRepository = planRepository;
         }

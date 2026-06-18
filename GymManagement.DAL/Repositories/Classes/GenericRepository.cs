@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,5 +47,14 @@ namespace GymManagement.DAL.Repositories.Classes
             return await _context.SaveChangesAsync(ct);
         }
 
+        public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> Predicate, CancellationToken ct = default)
+        {
+           return await _dbSet.AnyAsync(Predicate, ct);
+        }
+
+        public async Task<TEntity?> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> Predicate, CancellationToken ct = default)
+        {
+            return await _dbSet.FirstOrDefaultAsync(Predicate, ct);
+        }
     }
 }

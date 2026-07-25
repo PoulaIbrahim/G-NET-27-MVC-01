@@ -1,5 +1,6 @@
 using GymManagement.BLL.Services.Classes;
 using GymManagement.BLL.Services.Interfaces;
+using GymManagement.DAL;
 using GymManagement.DAL.Repositories.Classes;
 using GymManagement.DAL.Repositories.Interfaces;
 using GymMangement.DbContexts;
@@ -18,8 +19,10 @@ namespace GymMangement
             //builder.Services.AddScoped<IPlanRepository, PlanRepository>(); // Allow DI For PlanRepository // Scoped
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); // Allow DI For GenericRepository With Open Generic Type
             builder.Services.AddScoped<IMemberService, MemberService>(); // Allow DI For MemberService
-            IServiceCollection serviceCollection = builder.Services.AddScoped<IPlanService, PlanService>();
-            IServiceCollection serviceCollection1 = builder.Services.AddScoped<ITrainerService, TrainerService>();
+            builder.Services.AddScoped<IPlanService, PlanService>();
+            builder.Services.AddScoped<ITrainerService, TrainerService>();
+            builder.Services.AddScoped<ISessionRepository, SessionRepository>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             //builder.Services.AddScoped<GymDbContext>();
             builder.Services.AddDbContext<GymDbContext>(options =>

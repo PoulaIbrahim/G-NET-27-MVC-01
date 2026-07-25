@@ -18,7 +18,8 @@ namespace GymMangement
             //builder.Services.AddScoped<IPlanRepository, PlanRepository>(); // Allow DI For PlanRepository // Scoped
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); // Allow DI For GenericRepository With Open Generic Type
             builder.Services.AddScoped<IMemberService, MemberService>(); // Allow DI For MemberService
-
+            IServiceCollection serviceCollection = builder.Services.AddScoped<IPlanService, PlanService>();
+            IServiceCollection serviceCollection1 = builder.Services.AddScoped<ITrainerService, TrainerService>();
 
             //builder.Services.AddScoped<GymDbContext>();
             builder.Services.AddDbContext<GymDbContext>(options =>

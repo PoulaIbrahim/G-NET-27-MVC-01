@@ -11,5 +11,6 @@ namespace GymManagement.BLL.Services.Interfaces
     {
         Task<IEnumerable<SessionViewModel>> GetAllSessionAsync(CancellationToken ct);
         Task<int> GetCountOfBookedSlotsAsync(int sessionId, CancellationToken ct = default);
+        Task<bool> CreateSessionAsync(CreateSessionViewModel model, CancellationToken ct);
     }
 }
